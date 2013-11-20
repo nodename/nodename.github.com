@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nodename</title>
+<style type="text/css">
+body,td,th {
+  font-family: Verdana, Geneva, sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Getting Started with ClojureScript</h2>
+
+<p>Reference: <a href="http://shop.oreilly.com/product/0636920025139.do">ClojureScript: Up and Running</a>, by Stuart Sierra and Luke VanderHart</p>
+
+<p>Each of the examples can be built with <a href="https://github.com/technomancy/leiningen">leiningen</a>,
+the standard build manager and all-around toolkit for Clojure and ClojureScript. Leiningen's analogue to
+ANT's build.xml is the project.clj file, which is written in Clojure syntax.
+</p>
+<h3>First example: <a href="http://nodename.github.com/hello-cljs">Hello, ClojureScript!</a></h3>
+<p>
+In this example the ClojureScript code simply writes a bit of HTML into the document.
+The HTML file runs the compiled js in its body. We compile the js from the ClojureScript source by invoking
+Leiningen's cljsbuild plugin from the command line. Note the cljsbuild options specified in project.clj.
+</p>
+<h3>Second example: <a href="http://nodename.github.com/hello-cljs-compiler">Hello, ClojureScript compiler!</a></h3>
+<p>
+In this example the ClojureScript code defines a function <b>main</b> that writes a bit of HTML into the document.
+The function is marked with the <b>export</b> metadata tag to protect its name "main" from being munged
+during compilation, so the function can be called from another script on the html page.
+The HTML file loads the compiled js in its head, and then invokes <b>main</b> in its body.
+</p>
+<p>
+This time we have no cljsbuild options in project.clj and we invoke the ClojureScript compiler interactively,
+specifying options in the Clojure code we type at the repl. Not that we'd usually do that, but it demonstrates
+compiling ClojureScript from within a Clojure program.
+</p>
+<h3>Third example: <a href="http://nodename.github.com/hello-cljs-svg-html">Hello, SVG!</a></h3>
+<p>
+Here we return to writing explicit HTML into the document to draw a circle using SVG.
+Once again we configure the build in project.clj, so we can compile the ClojureScript to js from the command
+line using lein cljsbuild.
+</p>
+<h3>Fourth example: <a href="http://nodename.github.com/hello-cljs-svg-raphael">Hello, Raphael!</a></h3>
+<p>
+Now let's draw the circle using Raphael.js. Our program calls several Raphael functions by name,
+so we want those names to be protected from munging. We specify those in the raphael-externs.js file.
+</p>
+
+</body>
+</html>
